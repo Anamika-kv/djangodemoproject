@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container mt-5 p-3 bg-dark" style="margin-bottom:100px;"></div>
+<div class="container mt-5 p-3 bg-secondary" style="margin-bottom:100ox;">
+<h1 class="text-center mt-2">Add product Details</h1>
+<div class="container mt-3">
+<form method="POST" >
+    {% csrf_token %}
+    <div class="mb-3">
+  <label  class="form-label">stock</label>
+  <input type="Text" class="form-control"   name="u" value="{{pro.stock}}" placeholder="Enter stock ">
+    </div>
+     <div class="mb-3">
+  <input type="submit" class="btn btn-dark text-light px-4">
+     </div>
+</form>
+   </div>
+
+</div>
+{% endblock %}
+

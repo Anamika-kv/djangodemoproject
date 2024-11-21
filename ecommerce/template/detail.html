@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+   <div class="container mt-5 p-3 bg-dark" style="margin-bottom:100px;"></div>
+</div>
+<div class=container-fluid">
+      <!-- advertisement section -->
+	<div class="abt-section mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="abt-bg">
+						<img src="{{pro.image.url}}" height="450px" width="100%" alt="...">
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12">
+					<div class="abt-text">
+						<p class="top-sub"></p>
+						<h2>{{pro.name}}</h2>
+						<p>{{pro.desc}}</p>
+						<p>₹{{pro.price}}</p>
+						<p>stock:{{pro.stock}}</p>
+						{% if user.is_superuser %}
+				            {% if pro.stock > 0 %}
+						      <p>product in stock</p>
+						      <a class="boxed-btn mt-4" href="{% url 'shop:addstock' pro.id %}">Add Stock</a>
+					       {% else %}
+						     <p>product Out of stock</p>
+							 <a class="boxed-btn mt-4" href="{% url 'shop:addstock' pro.id %}">Add Stock</a>
+					      {% endif %}
+
+				{% else %}
+						{% if pro.stock > 0 %}
+						     <a class="boxed-btn mt-4" href="{% url 'cart:addtocart' pro.id %}">Add To Cart</a>
+						 {% else %}
+							<p>product Out of stock</p>
+						 {% endif %}
+				 {% endif %}
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end advertisement section -->
+
+
+
+</div>
+
+{% endblock %}
