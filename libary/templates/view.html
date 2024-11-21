@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-center">View Books</h1>
+<table class="table table-bordered  border border-color:dark w-75 mx-auto">
+<tr class="fw-bold fs-4">
+<th>Title</th>
+<th>Author</th>
+<th>Price</th>
+    <th>Language</th>
+    <th>Pages</th>
+    <th>cover</th>
+    <th>Document</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+</tr>
+
+{%  for  i   in   book %}
+
+    <tr class="text-center">
+        <td class="p-3">
+            <img src="{{i.cover.url}}" height="150pc" width="100px" class="img-thumbnail"> </td>
+<td>{{i.title}}</td><td>{{i.author}}</td><td>{{i.language}}</td><td>{{i.price}}</td><td>{{i.pages}}</td>
+    <td><a href="{{i.pdf.url}}">Download</a></td>
+         <td><a href="{% url 'books:detail' i.id %} " class="btn btn-secondary text-light" >View</a></td>
+         <td><a href="{% url 'books:edit' i.id %}" class="btn btn-secondary text-light">Edit</a></td>
+         <td><a  href="{% url 'books:delete' i.id %}" class="btn btn-secondary text-light">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+
+<!--in list-->
+
+<!--<ol type="1">-->
+<!--    {% for i in book %}-->
+<!--    <li>Book Details</li>-->
+<!--    <ul>-->
+<!--        <li>Tittle {{i.title}}</li>-->
+<!--        <li>Author {{i.author}}</li>-->
+<!--        <li>price {{i.price}}</li>-->
+<!--        <li>language {{i.language}}</li>-->
+<!--        <li>pages {{i.pages}}</li>-->
+<!--        <li>cover: {{i.cover}}</li>-->
+<!--        <li>pdf: {{i.pdf}}</li>-->
+<!--    </ul>-->
+<!--    {% endfor %}-->
+<!--</ol>-->
+<!--{% endblock %}-->
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <link rel="stylesheet" href="{% static 'css/style.css'%}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 class="text-center">View Books</h1>-->
+<!--<table class="table table-bordered w-75 mx-auto">-->
+<!--<tr class="fw-bold fs-4">-->
+<!--<th>Title</th>-->
+<!--<th>Author</th>-->
+<!--<th>Price</th>-->
+<!--    <th>Language</th>-->
+<!--    <th>Pages</th>-->
+<!--</tr>-->
+
+<!--{%  for  i   in   book %}-->
+<!--    <tr>-->
+<!--<td>{{i.title}}</td><td>{{i.author}}</td><td>{{i.price}}</td><td>{{i.language}}</td><td>{{i.pages}}</td></tr>-->
+<!--    {% endfor %}-->
+<!--    </table>-->
+<!--</body>-->
+<!--</html>-->

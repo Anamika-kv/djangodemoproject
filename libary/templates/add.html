@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container mt-3">
+<h1 class="text-center mt-2">Add page</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+  <label  class="form-label">Tittle</label>
+  <input type="Text" class="form-control" name="t"placeholder="Enter Tittle">
+    </div>
+     <div class="mb-3">
+  <label  class="form-label">Author</label>
+  <input type="Text" class="form-control" name="a" placeholder="Enter Author">
+    </div>
+     <div class="mb-3">
+  <label  class="form-label">Price</label>
+  <input type="number" class="form-control"  name= "p" placeholder="Enter Price">
+    </div>
+     <div class="mb-3">
+  <label  class="form-label">Pages</label>
+  <input type="number" class="form-control" name="pa" placeholder="Enter Pages">
+    </div>
+     <div class="mb-3">
+  <label  class="form-label">Languages</label>
+  <input type="Text" class="form-control" name="l" placeholder="Enter Language">
+    </div>
+    <div class="mb-3">
+  <label  class="form-label">cover</label>
+  <input type="file" class="form-control" name="c">
+    </div>
+    <div class="mb-3">
+  <label  class="form-label">pdf</label>
+  <input type="file" class="form-control" name="f">
+    </div>
+
+     <div class="mb-3">
+  <input type="submit" class="btn btn-dark text-light px-4">
+    </div>
+</form>
+
+</div>
+{% endblock %}
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>add page</h1>-->
+<!--</body>-->
+<!--</html>-->
